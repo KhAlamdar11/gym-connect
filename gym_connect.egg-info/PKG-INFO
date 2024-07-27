@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: gym_connect
+Version: 0.0.1
+Requires-Dist: gym
+Requires-Dist: numpy
+Requires-Dist: matplotlib

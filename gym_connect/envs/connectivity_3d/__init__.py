@@ -1,0 +1,1 @@
+from gym_connect.envs.connectivity_3d.connectivity_3d_v0 import Connectivity3DV0

@@ -1,0 +1,2 @@
+from gym_connect.envs.connectivity_battery.connectivity_battery_v0 import ConnectivityBatteryV0
+from gym_connect.envs.connectivity_battery.connectivity_battery_v1 import ConnectivityBatteryV1

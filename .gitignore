@@ -1,0 +1,5 @@
+*.pyc
+__pycache__
+.idea/
+
+/gym_connect/tests/data/
