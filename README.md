@@ -9,7 +9,7 @@ This repository contains part of material developed for Master's thesis in [<a h
 The package contains gym environments for battery aware connectivity maintainance algorithms. It allows for initialization of multi-agent formations, keyboard or pre-selected control of stubborn agents, connectivity maintainance algorihtm from [<a href="#ref2">2</a>] and battery aware connectivity maintainance of multi agent systems from [<a href="#ref2">1</a>]. 
 
 <div align="center">
-    <img src="/media/classic.gif" alt="testing" height="200">
+    <img src="/media/classic.gif" alt="testing" height="240">
 </div>
 
 <div align="center">
