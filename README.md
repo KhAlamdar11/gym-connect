@@ -45,31 +45,39 @@ This environment is designed for testing out controllers without inclusion of im
 
 Main Features:
 - Allows selection of keyboard control, and predefined trajectories (circle and ellipse (randomized))
-- Allows selection of classic [<a href="#ref1">1</a>] controller and battery aware controller [<a href="#ref1">1</a>]
+- Allows selection of classic [<a href="#ref2">2</a>] controller and battery aware controller [<a href="#ref1">1</a>]
 - Full battery management related variables (see config files)
 - Dynamic removal and addition of agents
 
-To run the test script:
+To run the test script that simulates a stubborn agent moving in random ellipses or circles around the other stubborn agent, use the following commands:
 
 ```bash
 cd gym_connect/tests/
 python3 test_connectivitybattery_v0.py cfg/cfg_test_random.cfg
 ```
 
-This makes a stubborn agent move in random elipses or circles around a stubborn agents. See config file for details.
-
-To use keyboard to control this stubborn agent instead of having a pre-defined trajectory, you can run the same script but with a different config file:
+If the stubborn agents are to be controlled manually using the keyboard instead of following a pre-defined trajectory, the same script can be run with a different configuration file:
 
 ```bash
 cd gym_connect/tests/
 python3 test_connectivitybattery_v0.py cfg/cfg_test_keyboard.cfg
 ```
 
-You can use the following keys to control the two pinned agents:
+The following keys can be used to control the two pinned agents:
 
+<div align="center">
+    <img src="/media/keyboard.png" alt="testing" height="130">
+</div>
 
+**Additional Information**
 
-If you press ctrl+C where the script was run, a simulation video as well as some data (numpy files for tracking fiedler value, distances, and number )
+If `Ctrl+C` is pressed where the script is running, a simulation video will be saved along with some data files. These data files include numpy files for tracking:
+
+- Fiedler value
+- Distance measurements
+- Number of agents 
+
+Refer to the configuration files for more details on the simulation parameters and settings.
 
 ### Connectivity Battery v1
 
@@ -81,7 +89,7 @@ To run the test script:
 
 ```bash
 cd gym_connect/tests/
-python3 test_connectivitybattery_v1.py cfg/cfg_test.cfg
+python3 test_connectivitybattery_v1.py cfg/cfg_test_random.cfg
 ```
 
 ### Connectivity3D-v0
