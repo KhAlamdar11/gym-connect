@@ -53,8 +53,23 @@ To run the test script:
 
 ```bash
 cd gym_connect/tests/
-python3 test_connectivitybattery_v0.py cfg/cfg_test.cfg
+python3 test_connectivitybattery_v0.py cfg/cfg_test_random.cfg
 ```
+
+This makes a stubborn agent move in random elipses or circles around a stubborn agents. See config file for details.
+
+To use keyboard to control this stubborn agent instead of having a pre-defined trajectory, you can run the same script but with a different config file:
+
+```bash
+cd gym_connect/tests/
+python3 test_connectivitybattery_v0.py cfg/cfg_test_keyboard.cfg
+```
+
+You can use the following keys to control the two pinned agents:
+
+
+
+If you press ctrl+C where the script was run, a simulation video as well as some data (numpy files for tracking fiedler value, distances, and number )
 
 ### Connectivity Battery v1
 

@@ -46,6 +46,7 @@ def load_config_params(self, args):
     self.end_node_init = np.array(json.loads(args.get('end_node_init')), dtype=float)
     self.start_node = np.array(json.loads(args.get('start_node_init')), dtype=float)
 
+
     #________________________  UAV battery params  ________________________
     initial_batteries_str = args.get('initial_batteries')
     if initial_batteries_str:
@@ -65,18 +66,14 @@ def load_config_params(self, args):
     self.critical_battery_level = args.getfloat('critical_battery_level')
     self.dead_battery_level = args.getfloat('dead_battery_level')
 
+
     #________________________  UAV addition  ________________________
     self.add_uav_limit = np.array(json.loads(args.get('add_uav_limit')), dtype=float)
     self.add_uav_criterion = args.get('add_uav_criterion')
 
+
     #________________________  viz params   ________________________
     self.plot_lim = np.array(json.loads(args.get('plot_lim')), dtype=float)
     self.in_motion = np.zeros(self.n_agents-2, dtype=bool)
-
-    # WHY ARE WE DOING THIS AT ALL????
-    # self.action_space = spaces.Box(low=-self.max_accel, high=self.max_accel, shape=(2 * self.n_agents,),
-    #                                 dtype=np.float32)
-    # self.observation_space = spaces.Box(low=-np.Inf, high=np.Inf, shape=(self.n_agents, self.n_features),
-                                        # dtype=np.float32)
 
     self.render_method = args.get('render_method')

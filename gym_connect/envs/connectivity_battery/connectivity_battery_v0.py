@@ -277,6 +277,7 @@ class ConnectivityBatteryV0(gym.Env):
         if self.mode != 'keyboard':
             self.end_node += np.array(u) * self.robot_speed
         else:
+            print(self.start_node,self.end_node)
             ang = angle_between_vectors(self.end_node-self.start_node,u)
             if ang<90:
                 self.end_node += self.speed_gain() * np.array(u) * self.robot_speed
