@@ -109,7 +109,7 @@ python3 test_connectivity3d_v0.py cfg/cfg_test_3d.cfg
 
 ⚠️ Agents in 3D space are more unstable and gains require to be tuned extensively. 
 
-## Custon Usage
+## Custom Usage
 
 To use the environment in your own script:
 
