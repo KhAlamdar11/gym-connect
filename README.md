@@ -20,20 +20,20 @@ The package contains gym environments for battery aware connectivity maintainanc
 
 1. **Dependencies**: 
 
-Install dependencies via the requirements file.
+    Install dependencies via the requirements file.
 
-```bash
-pip install -r /path/to/requirements.txt
-```
+    ```bash
+    pip install -r /path/to/requirements.txt
+    ```
 
-In case of global installation, care must be taken as this repository employs an older version of OpenAI Gym to avoid any version conflicts.
+    ⚠️ In case of global installation, care must be taken as this repository employs an older version of OpenAI Gym to avoid any version conflicts.
 
 2. **Setup the package:**
 
-```bash
-cd gym-connect
-pip install -e . 
-```
+    ```bash
+    cd gym-connect
+    pip install -e . 
+    ```
 
 ## Available Environments
 
@@ -63,7 +63,7 @@ cd gym_connect/tests/
 python3 test_connectivitybattery_v0.py cfg/cfg_test_keyboard.cfg
 ```
 
-The following keys can be used to control the two pinned agents:
+The following keys can be used to control the two stubborn agents:
 
 <div align="center">
     <img src="/media/keyboard.png" alt="testing" height="130">
@@ -96,39 +96,51 @@ python3 test_connectivitybattery_v1.py cfg/cfg_test_random.cfg
 
 env-name: Connectivity3D-v0
 
-Extension to 3D.
+Extension of the connectivity controller to 3D.
 
 To run the test script:
 
 ```bash
 cd gym_connect/tests/
-python3 test_connectivity3d_v0.py cfg/cfg_test_3D.cfg
+python3 test_connectivity3d_v0.py cfg/cfg_test_3d.cfg
 ```
 
+⚠️ Some funcionalities, such as spawning of new agents are not well defined in 3D space.
 
-## To use
+⚠️ Agents in 3D space are more unstable and gains require to be tuned extensively. 
 
-Include the following code in your Python script:
+## Custon Usage
+
+To use the environment in your own script:
 
 ~~~~
 import gym  
 import gym_connect
-env = gym.make("Connectivity-v0")` 
+env = gym.make("Connectivity-v0") 
 ~~~~
 
-and then use the `env.reset()` and `env.step()` for interfacing with the environment as you would with other OpenAI Gym environments.  These implementations also include a `env.controller()` function that gives the best current set of actions to be used for imitation learning.
+`env.reset()` and `env.step()` can be used to interface with the environment, just like with other OpenAI Gym environments. Additionally, the `env.controller()` function computes the connectivity controller output for the agents.
 
-For more examples, consult the test scripts under the ```gym_connect/tests/``` dir.
+For more examples, consult the test scripts under the ```gym_connect/tests/``` directory.
 
 ## Acknowledgements
 
 This codebase is structured similarly to and inspired by the work of katetolstaya (https://github.com/katetolstaya/gym-flock).
 
+## TODOs
+- [ ] Update all variables to be object-agnostic (e.g., use "agents" instead of "UAV/robot/base/node") for consistency.
+- [ ] Upgrade the lattice generation algorithm to fix the recursion bug (see [Issue](https://github.com/KhAlamdar11/gym-connect/issues/1)).
+- [ ] Create a new environment that allows dynamic allotment of stubborn agents, instead of presetting them to 2.
+- [ ] Upgrade to support trajectories for multiple stubborn agents simultaneously (currently, only one agent can move in a circle).
+- [ ] Upgrade 3D environment to include agent addition strategies in 3D.
+- [ ] Upgrade the entire codebase to use Gymnasium.
+
+
 
 ## References
 
 <a id="ref1"></a>
-[1]: Alamdar, K.G., 2022, June. Connectivity Maintainence for ad-hoc UAV Networks for Multi-robot Missions. University of Zagreb.
+[1]: K.G. Alamdar, “Connectivity Maintainence for ad-hoc UAV Networks for Multi-robot Missions,'' University of Zagreb, 2024, June.
 
 <a id="ref2"></a>
 [2]: L. Sabattini, N. Chopra, and C. Secchi, “Decentralized connectivity maintenance for cooperative control of mobile  robotic systems,” The International Journal of Robotics Research, vol. 32, no. 12, pp. 1411–1423, 2013. https://doi.org/10.1177/0278364913499085
